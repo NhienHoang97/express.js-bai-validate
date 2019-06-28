@@ -4,6 +4,10 @@ var router = express.Router();
 var validate = require('../validate/user.validate');
 	
 var controller = require('../controllers/user.controller');
+router.get('/cookie', function(req, res, next){
+	res.cookie('user-id',12234);
+	res.send('hello');
+});
 
 router.get('/', controller.index);
 router.get('/search', controller.search);
