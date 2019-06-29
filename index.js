@@ -2,7 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var userRoute = require('./routes/user.route');
 var cookieParser = require('cookie-parser');
-
+var authRoute = require('./routes/auth.route');
+var authMiddleware = require('./middlewares/auth.middleware');
 var port = 9080;
 var app = express();
 
@@ -13,7 +14,7 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use(express.static('public'));
 app.use(cookieParser());
 
-app.get('/', function(req, res){
+app.get('/', function(req, res){ 
 	res.render('index', {
 		name:'AAA'
 	});
@@ -22,7 +23,8 @@ app.get('/', function(req, res){
 app.get('/styles/custom.css', function(req, res){
 	res.send('abc');
 });
-app.use('/users', userRoute);
+app.use('/users',authMiddleware.requireAuth, userRoute);
+app.use('/auth',authRoute)
 
 app.listen(port ,function(){
 	console.log('sever listening on port' + port);

@@ -2,6 +2,7 @@ var express = require('express');
 var shortid = require('shortid');
 var router = express.Router();
 var validate = require('../validate/user.validate');
+var authMiddleware = require('../middlewares/auth.middleware');
 	
 var controller = require('../controllers/user.controller');
 router.get('/cookie', function(req, res, next){
