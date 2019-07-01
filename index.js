@@ -1,4 +1,4 @@
-console.log(process.env.SESSTION_SECRET);
+// console.log(process.env.SESSTION_SECRET);
 require('dotenv').config();
 
 var express = require('express');
@@ -7,6 +7,7 @@ var userRoute = require('./routes/user.route');
 var cookieParser = require('cookie-parser');
 var authRoute = require('./routes/auth.route');
 var authMiddleware = require('./middlewares/auth.middleware');
+var productRoute = require('./routes/product.route')
 var port = 9080;
 var app = express();
 
@@ -27,7 +28,8 @@ app.get('/styles/custom.css', function(req, res){
 	res.send('abc');
 });
 app.use('/users',authMiddleware.requireAuth, userRoute);
-app.use('/auth',authRoute)
+app.use('/auth',authRoute);
+app.use('/products', productRoute);
 
 app.listen(port ,function(){
 	console.log('sever listening on port' + port);
