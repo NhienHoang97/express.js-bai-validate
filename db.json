@@ -65,12 +65,6 @@
   ],
   "products": [
     {
-      "id": "49c40ae5-9080-43f5-a5a2-702920041909",
-      "name": "Wine - Redchard Merritt",
-      "image": "https://loremflickr.com/320/240",
-      "description": "ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis"
-    },
-    {
       "id": "5157cd05-9269-4d98-90f8-3c12580517b5",
       "name": "Oil - Truffle, White",
       "image": "https://loremflickr.com/320/240",
