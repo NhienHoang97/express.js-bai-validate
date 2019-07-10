@@ -10,7 +10,6 @@ module.exports.postCreate = function(req,res,next) {
 		res.render('users/create',{
 			errors:errors,
 			values:req.body
-
 		});
 		return;
 	}
